@@ -1,6 +1,6 @@
 ﻿namespace Assignment.Models
 {
-    public class Task
+    public class TaskItem
     {
         public int Id { get; set; }
 

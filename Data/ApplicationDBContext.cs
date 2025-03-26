@@ -10,7 +10,7 @@ namespace Assignment.Data
         }
         public DbSet<Models.User> Users { get; set; }
 
-        public DbSet<Models.Task> Tasks { get; set; }
+        public DbSet<Models.TaskItem> Tasks { get; set; }
 
     }
 }

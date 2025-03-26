@@ -12,6 +12,6 @@
 
         public int Role { get; set; } 
 
-        public List<Task> Tasks { get; set; } = new List<Task>();
+        public List<TaskItem> Tasks { get; set; } = new List<TaskItem>();
     }
 }
