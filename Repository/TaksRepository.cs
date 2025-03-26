@@ -12,6 +12,11 @@ namespace Assignment.Repository
     {
         private readonly ApplicationDBContext _context;
 
+        public TaksRepository(ApplicationDBContext context)
+        {
+            _context = context;
+        }
+
         public async Task<List<ViewTaskDto>> GetTasksByUserId(int userId)
         {
             var tasks = await _context.Tasks
@@ -37,6 +42,7 @@ namespace Assignment.Repository
                 Status = createTaskDto.Status,
                 DueDate = createTaskDto.DueDate,
                 UserId = createTaskDto.UserId,
+
             };
 
             await _context.Tasks.AddAsync(task);

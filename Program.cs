@@ -25,6 +25,7 @@ namespace Assignment
             });
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<ITaskRepository, TaksRepository>();
 
             var app = builder.Build();
 
