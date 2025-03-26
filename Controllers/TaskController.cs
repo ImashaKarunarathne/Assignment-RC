@@ -18,8 +18,9 @@ namespace Assignment.Controllers
             _taskRepository = taskRepository;
         }
 
-        [HttpGet("{userId}")]
-        public async Task<IActionResult> GetTasksByUserId(int userId)
+        /*[HttpGet]
+        [Route("{userId}")]
+        public async Task<IActionResult> GetTasksByUserId([FromRoute]int userId)
         {
             var tasks = await _taskRepository.GetTasksByUserId(userId);
 
@@ -28,7 +29,7 @@ namespace Assignment.Controllers
                 return NotFound();
             }
             return Ok(tasks);
-        }
+        }*/
 
         [HttpPost]
         public async Task<IActionResult> CreateTask([FromBody] CreateTaskDto createTaskDto)
@@ -50,9 +51,9 @@ namespace Assignment.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTaskFilterd(int id ,  [FromBody] FilterCriteria filterCriteria)
+        public async Task<IActionResult> GetTaskFilterd(int id, [FromBody] FilterCriteria filterCriteria)
         {
-            var task = await _taskRepository.FilterTask(id , filterCriteria);
+            var task = await _taskRepository.FilterTask(id, filterCriteria);
 
             if (task == null)
             {
