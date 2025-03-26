@@ -1,4 +1,9 @@
 
+using Assignment.Data;
+using Assignment.Interfaces;
+using Assignment.Repository;
+using Microsoft.EntityFrameworkCore;
+
 namespace Assignment
 {
     public class Program
@@ -14,6 +19,13 @@ namespace Assignment
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<ApplicationDBContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -24,9 +36,6 @@ namespace Assignment
             }
 
             app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
 
             app.MapControllers();
 
