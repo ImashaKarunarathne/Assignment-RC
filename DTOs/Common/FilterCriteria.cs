@@ -4,6 +4,8 @@
     {
         public string FilterBy { get; set; } = string.Empty;
 
-        public string FilterValue { get; set; } = string.Empty;
+        public int FilterValue { get; set; }
+
+        public DateTime dueDate { get; set; }
     }
 }

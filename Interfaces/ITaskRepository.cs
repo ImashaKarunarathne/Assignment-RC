@@ -1,4 +1,5 @@
-﻿using Assignment.DTOs.Task;
+﻿using Assignment.DTOs.Common;
+using Assignment.DTOs.Task;
 
 namespace Assignment.Interfaces
 {
@@ -9,5 +10,7 @@ namespace Assignment.Interfaces
         Task<ViewTaskDto> CreateTask(CreateTaskDto createTaskDto);
 
         Task<ViewTaskDto> DeleteTask(int id);
+
+        Task<List<ViewTaskDto>> FilterTask(int id, FilterCriteria filterCriteria);
     }
 }

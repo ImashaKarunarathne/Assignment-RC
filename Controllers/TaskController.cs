@@ -1,4 +1,5 @@
-﻿using Assignment.DTOs.Task;
+﻿using Assignment.DTOs.Common;
+using Assignment.DTOs.Task;
 using Assignment.Interfaces;
 using Assignment.Repository;
 using Microsoft.AspNetCore.Http;
@@ -48,8 +49,17 @@ namespace Assignment.Controllers
             return Ok("Task Deleted Successfully");
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTaskFilterd(int id ,  [FromBody] FilterCriteria filterCriteria)
+        {
+            var task = await _taskRepository.FilterTask(id , filterCriteria);
 
-
+            if (task == null)
+            {
+                return NotFound();
+            }
+            return Ok(task);
+        }
 
     }
 }
